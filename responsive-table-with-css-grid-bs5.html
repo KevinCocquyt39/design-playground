@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+	<!-- https://css-tricks.com/snippets/css/complete-guide-grid/ -->
+
+	<!-- TABLE STYLING -->
+	<style>
+		.nt-table-grid-header {
+			font-weight: bold;
+		}
+
+		.nt-table-grid-header,
+		.nt-table-grid-item {
+			padding: .5rem .5rem;
+		}
+
+		.nt-table-grid-line:first-child {
+			border-bottom: 1px solid #000;
+		}
+
+		.nt-table-grid-line {
+			border-bottom: 1px solid #dee2e6;
+		}
+
+		@media screen and (max-width: 600px) {
+			.nt-table-grid-header {
+				display: none;
+			}
+
+			.nt-table-grid-line:first-child {
+				border-bottom: none;
+				margin: 0;
+			}
+
+			.nt-table-grid-line {
+				border: 1px solid #dee2e6;
+				border-radius: 4px;
+			}
+		}
+	</style>
+
+	<!-- GRID STYLING -->
+	<style>
+		.nt-table-grid-line {
+			display: grid;
+			grid-template-columns: 15% auto 15% 20%;
+			grid-template-rows: auto;
+			grid-template-areas:
+				"id name age profession";
+			column-gap: 24px;
+
+			border-bottom: 1px solid #dee2e6;
+		}
+
+		@media screen and (max-width: 600px) {
+			.nt-table-grid-line {
+				grid-template-columns: auto;
+				grid-template-areas:
+					"id name"
+					"profession age";
+				column-gap: 24px;
+				margin: 15px;
+			}
+		}
+
+		.nt-table-grid-item__id {
+			grid-area: id;
+		}
+
+		.nt-table-grid-item__name {
+			grid-area: name;
+		}
+
+		.nt-table-grid-item__age {
+			grid-area: age;
+		}
+
+		.nt-table-grid-item__profession {
+			grid-area: profession;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="nt-table-grid">
+		<div class="nt-table-grid-line">
+			<div class="nt-table-grid-header nt-table-grid-item__id">ID</div>
+			<div class="nt-table-grid-header nt-table-grid-item__name">NAME</div>
+			<div class="nt-table-grid-header nt-table-grid-item__age">AGE</div>
+			<div class="nt-table-grid-header nt-table-grid-item__profession">PROFESSION</div>
+		</div>
+
+		<div class="nt-table-grid-line">
+			<div class="nt-table-grid-item nt-table-grid-item__id">1</div>
+			<div class="nt-table-grid-item nt-table-grid-item__name">Kevin</div>
+			<div class="nt-table-grid-item nt-table-grid-item__age">43</div>
+			<div class="nt-table-grid-item nt-table-grid-item__profession">DEVELOPER</div>
+		</div>
+		<div class="nt-table-grid-line">
+			<div class="nt-table-grid-item nt-table-grid-item__id">2</div>
+			<div class="nt-table-grid-item nt-table-grid-item__name">Vicky</div>
+			<div class="nt-table-grid-item nt-table-grid-item__age">41</div>
+			<div class="nt-table-grid-item nt-table-grid-item__profession">CONSULTANT</div>
+		</div>
+	</div>
+</body>
+
+</html>
